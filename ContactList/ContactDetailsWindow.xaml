@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ContactList"
         mc:Ignorable="d"
-        Title="Contact details" Height="300" Width="300">
-    <Grid>
-        <StackPanel Margin="10">
-            <TextBox x:Name="nameTextBox" Margin="0 0 0 5"/>
-            <TextBox x:Name="emailTextBox" Margin="0 0 0 5"/>
-            <TextBox x:Name="phoneTextBox" Margin="0 0 0 5"/>
-            <Button Content="Update" Name="UpdateBtn" Margin="0 0 0 5" Click="UpdateBtn_Click"/>
-            <Button Content="Delete" Name="DeleteBtn" Margin="0 0 0 5" Click="DeleteBtn_Click" Background="Red" Foreground="White"/>
+        Title="Contact details" Height="165" Width="300" Background="#FF5346A1">
+    <Grid Margin="0,0,0,5">
+        <StackPanel Margin="10,10,10,5">
+            <TextBox x:Name="nameTextBox" Margin="0 0 0 5" Background="MediumSlateBlue" Foreground="White" FontFamily="Cascadia Code"/>
+            <TextBox x:Name="emailTextBox" Margin="0 0 0 5" Background="MediumSlateBlue" Foreground="White" FontFamily="Cascadia Code"/>
+            <TextBox x:Name="phoneTextBox" Margin="0 0 0 5" Background="MediumSlateBlue" Foreground="White" FontFamily="Cascadia Code"/>
+            <Button Content="Update" Name="UpdateBtn" Margin="0 0 0 5" Click="UpdateBtn_Click" FontFamily="Cascadia Code" Background="MediumSlateBlue" Foreground="White"/>
+            <Button Content="Delete" Name="DeleteBtn" Margin="0 0 0 5" Click="DeleteBtn_Click" Background="#FFFF0978" Foreground="White" FontFamily="Cascadia Code"/>
             
         </StackPanel>
         

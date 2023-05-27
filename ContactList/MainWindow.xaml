@@ -5,21 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ContactList"
         mc:Ignorable="d"
-        Title="Contact List" Height="450" Width="800">
+        Title="Contact List" Height="450" Width="800" Background="#FF5346A1" Foreground="White">
     <Grid>
         <StackPanel Margin="10">
-            <Button Content="New contact" Click="Button_Click" />
-            <TextBox Margin="0 5" TextChanged="TextBox_TextChanged" />
+            <Button Content="New contact" Click="Button_Click" Background="MediumSlateBlue" Foreground="White" FontFamily="Cascadia Code" />
+            <TextBox Margin="0 5" TextChanged="TextBox_TextChanged" Background="MediumSlateBlue" SelectionBrush="#FFFF0978" Foreground="White" />
             <ListView x:Name="contactListView" Height="365" Margin="0 5 0 0"
-                      SelectionChanged="contactListView_SelectionChanged" />
+                      SelectionChanged="contactListView_SelectionChanged" Background="MediumSlateBlue" Foreground="White" FontFamily="Cascadia Code" d:ItemsSource="{d:SampleData ItemCount=5}" />
             <ListView>
-                <DataTemplate>
-                    <StackPanel>
-                        <TextBlock Text="{Binding Name}" HorizontalAlignment="Left"  FontSize="20" FontWeight="Black" />
-                        <TextBlock Text="{Binding Email}" HorizontalAlignment="Center" FontSize="15" FontWeight="Black" />
-                        <TextBlock Text="{Binding Phone}" HorizontalAlignment="Right" FontSize="15" FontWeight="Black" />
-                    </StackPanel>
-                </DataTemplate>
+                <GridView>
+                    <GridViewColumn Width="200" Header="Name" DisplayMemberBinding="{Binding Path=Name}" />
+                    <GridViewColumn Width="200" Header="Email" DisplayMemberBinding="{Binding Path=Email}" />
+                    <GridViewColumn Width="200" Header="Phone" DisplayMemberBinding="{Binding Path=Phone}" />
+                </GridView>
             </ListView>
         </StackPanel>
     </Grid>

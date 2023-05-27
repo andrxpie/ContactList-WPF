@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ContactList"
         mc:Ignorable="d"
-        Title="New contact" Height="300" Width="300">
-    <Grid>
-        <StackPanel Margin="10">
-            <TextBox Margin="0,0,0,5" x:Name="nameTextBox" />
-            <TextBox Margin="0,0,0,5" x:Name="emailTextBox" />
-            <TextBox Margin="0,0,0,5" x:Name="phoneTextBox" />
-            <Button Content="Save" Click="Button_Click"></Button>
+        Title="New contact" Height="140" Width="300" FontFamily="Cascadia Code" Background="#FF5346A1" Foreground="White">
+    <Grid Margin="0,0,0,5">
+        <StackPanel Margin="10,10,10, 5">
+            <TextBox Margin="0,0,0,5" x:Name="nameTextBox" Foreground="White" Background="MediumSlateBlue" />
+            <TextBox Margin="0,0,0,5" x:Name="emailTextBox" Background="MediumSlateBlue" Foreground="White" />
+            <TextBox Margin="0,0,0,5" x:Name="phoneTextBox" Foreground="White" Background="MediumSlateBlue" />
+            <Button Content="Save" Click="Button_Click" Background="MediumSlateBlue" Foreground="White"></Button>
         </StackPanel>
     </Grid>
 </Window>
