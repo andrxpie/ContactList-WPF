@@ -59,7 +59,13 @@ namespace ContactList
 
         private void contactListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            Contact selectedContact = contactListView.SelectedItem as Contact;
+            if(selectedContact != null)
+            {
+                ContactDetailsWindow contactDetails= new ContactDetailsWindow(selectedContact, contacts);
+                contactDetails.ShowDialog();
+                GetContacts();
+            }
         }
     }
 }
