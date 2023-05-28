@@ -68,5 +68,10 @@ namespace ContactList
                 GetContacts();
             }
         }
+
+        private void LogOut_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }
