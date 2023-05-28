@@ -1,5 +1,8 @@
-﻿using System;
+﻿using ContactList.Data.Models;
+using SQLite;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,46 +22,63 @@ namespace ContactList
     /// </summary>
     public partial class Authorization : Window
     {
-        string login = string.Empty;
-        string password = string.Empty;
+        User user;
         bool isExist = false;
 
         public Authorization()
         {
             InitializeComponent();
+            user = new User();
+            GetUser();
+        }
+
+        void GetUser()
+        {
+            if(File.Exists(App.dbPath))
+            {
+                using (SQLiteConnection connection = new SQLiteConnection(App.dbPath))
+                {
+                    connection.CreateTable<User>();
+                    if(connection.Table<User>().First() != null) {
+                        user = connection.Table<User>().First();
+                        isExist = true;
+                    }
+                }
+            }
         }
 
         private void Enter_Click(object sender, RoutedEventArgs e)
         {
             if (isExist)
             {
-                if(loginTextBox.Text != login)
+                if(loginTextBox.Text != user.login)
                 {
                     MessageBox.Show("Wrong login", "Message", MessageBoxButton.OK);
                     return;
                 }
 
-                if(passwordTextBox.Text != password)
+                if(passwordTextBox.Text != user.password)
                 {
                     MessageBox.Show("Wrong password", "Message", MessageBoxButton.OK);
                     return;
                 }
 
                 Hide();
+
                 MainWindow main = new MainWindow();
                 main.ShowDialog();
                 Show();
             }
             else
             {
-                if(loginTextBox.Text != string.Empty) login = loginTextBox.Text;
+                if(loginTextBox.Text != string.Empty) user.login = loginTextBox.Text;
                 else
                 {
                     MessageBox.Show("Login is empty", "Message", MessageBoxButton.OK);
                     return;
                 }
 
-                if(passwordTextBox.Text != string.Empty) password = passwordTextBox.Text;
+                if(passwordTextBox.Text != string.Empty) user.password = passwordTextBox.Text;
                 else
                 {
                     MessageBox.Show("Password is empty", "Message", MessageBoxButton.OK);

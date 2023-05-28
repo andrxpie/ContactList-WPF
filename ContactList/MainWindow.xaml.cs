@@ -28,7 +28,6 @@ namespace ContactList
             InitializeComponent();
             contacts = new List<Contact>();
             GetContacts();
-
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
