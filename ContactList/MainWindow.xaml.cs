@@ -54,7 +54,8 @@ namespace ContactList
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            List<Contact> searchContacts = contacts.Where(x => x.Name.Contains(searchBox.Text)).ToList();
+            contactListView.ItemsSource = searchContacts;
         }
 
         private void contactListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
