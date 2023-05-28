@@ -5,19 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ContactList"
         mc:Ignorable="d"
-        Title="Contact List" Height="450" Width="800" Background="#FF5346A1" Foreground="White">
+        Title="Contact List" Height="450" Width="800" Foreground="White">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="Black" Offset="1"/>
+            <GradientStop Color="#FF5346A1" Offset="0"/>
+        </LinearGradientBrush>
+    </Window.Background>
     <Grid>
         <StackPanel Margin="10">
             <Button Content="New contact" Click="Button_Click" Background="MediumSlateBlue" Foreground="White" FontFamily="Cascadia Code" />
             <TextBox Margin="0 5" TextChanged="TextBox_TextChanged" Background="MediumSlateBlue" SelectionBrush="#FFFF0978" Foreground="White" />
             <ListView x:Name="contactListView" Height="365" Margin="0 5 0 0"
-                      SelectionChanged="contactListView_SelectionChanged" Background="MediumSlateBlue" Foreground="White" FontFamily="Cascadia Code" d:ItemsSource="{d:SampleData ItemCount=5}" />
-            <ListView>
-                <GridView>
-                    <GridViewColumn Width="200" Header="Name" DisplayMemberBinding="{Binding Path=Name}" />
-                    <GridViewColumn Width="200" Header="Email" DisplayMemberBinding="{Binding Path=Email}" />
-                    <GridViewColumn Width="200" Header="Phone" DisplayMemberBinding="{Binding Path=Phone}" />
-                </GridView>
+                      SelectionChanged="contactListView_SelectionChanged" Foreground="White" FontFamily="Cascadia Code" Background="MediumSlateBlue" >
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Width="290" Header="Name" DisplayMemberBinding="{Binding Path=Name}" />
+                        <GridViewColumn Width="290" Header="Email" DisplayMemberBinding="{Binding Path=Email}" />
+                        <GridViewColumn Width="200" Header="Phone" DisplayMemberBinding="{Binding Path=Phone}" />
+                    </GridView>
+                </ListView.View>
             </ListView>
         </StackPanel>
     </Grid>
