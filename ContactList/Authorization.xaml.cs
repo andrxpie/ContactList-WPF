@@ -39,9 +39,16 @@ namespace ContactList
                 using (SQLiteConnection connection = new SQLiteConnection(App.dbPath))
                 {
                     connection.CreateTable<User>();
-                    if(connection.Table<User>().First() != null) {
-                        user = connection.Table<User>().First();
-                        isExist = true;
+                    try
+                    {
+                        if(connection.Table<User>().First() != null) {
+                            user = connection.Table<User>().First();
+                            isExist = true;
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show("No user found", "Message", MessageBoxButton.OK);
                     }
                 }
             }
@@ -63,8 +70,10 @@ namespace ContactList
                     return;
                 }
 
-                Hide();
+                loginTextBox.Text = string.Empty;
+                passwordTextBox.Text = string.Empty;
 
+                Hide();
                 MainWindow main = new MainWindow();
                 main.ShowDialog();
                 Show();
@@ -86,6 +95,9 @@ namespace ContactList
                 }
 
                 isExist = true;
+
+                loginTextBox.Text = string.Empty;
+                passwordTextBox.Text = string.Empty;
 
                 Hide();
                 MainWindow main = new MainWindow();
